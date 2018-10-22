@@ -18,10 +18,10 @@ var logger = require('morgan');
 var helmet = require('helmet');
 var session = require('express-session');
 var passport = require('passport');
-var GitHubStrategy = require('passport-github2').Stragety;
+var GitHubStrategy = require('passport-github2').Strategy;
 
-var GITHUB_CLIENT_ID = '1';
-var GITHUB_CLIENT_SECRET = '1';
+var GITHUB_CLIENT_ID = '35df2b0ee88e4d1b208b';
+var GITHUB_CLIENT_SECRET = 'ce96d7bb8962eb08c94e32b620348a88f3866b89';
 
 passport.serializeUser(function (user, done) {
   done(null, user);
