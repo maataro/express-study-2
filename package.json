@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
+    "damage-calc": "git+https://github.com/progedu/damage-calc-4006.git",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-session": "^1.15.6",
@@ -19,7 +20,11 @@
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "mocha": "^4.0.1",
-    "mocha-junit-reporter": "^1.13.0"
+    "mocha-junit-reporter": "^1.13.0",
+    "webpack": "^3.10.0"
   }
 }
