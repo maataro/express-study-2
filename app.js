@@ -65,8 +65,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// 第一引数にはパス、第二引数に ensureAuthenticated 関数、第三引数に Router オブジェクト
+// を渡して呼び出すことで、そのパスへのアクセスに認証が必要となるような動作をする
+app.use('/users', ensureAuthenticated, usersRouter);
 app.use('/photos', photosRouter);
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login');
+}
 
 // GitHub への認証を行うための処理を、 GET で /auth/github にアクセスした際に行う
 app.get('/auth/github',
