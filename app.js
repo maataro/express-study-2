@@ -46,6 +46,7 @@ passport.use(new GitHubStrategy({
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var photosRouter = require('./routes/photos');
+var serverStatus = require('./routes/server-status');
 
 var app = express();
 app.use(helmet());
@@ -69,6 +70,7 @@ app.use('/', indexRouter);
 // を渡して呼び出すことで、そのパスへのアクセスに認証が必要となるような動作をする
 app.use('/users', ensureAuthenticated, usersRouter);
 app.use('/photos', photosRouter);
+app.use('/server-status', serverStatus);
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
