@@ -14,3 +14,10 @@ movingButton.click(() => {
   block.animate({ 'marginLeft': '20px' }, 1000);
 })
 
+const loadavg = $('#loadavg');
+
+setInterval(() => {
+  $.get('/server-status', {}, (data) => {
+    loadavg.text(data.loadavg.toString());
+  });
+}, 1000);

@@ -90,6 +90,14 @@ movingButton.click(function () {
   block.animate({ 'marginLeft': '20px' }, 1000);
 });
 
+var loadavg = (0, _jquery2.default)('#loadavg');
+
+setInterval(function () {
+  _jquery2.default.get('/server-status', {}, function (data) {
+    loadavg.text(data.loadavg.toString());
+  });
+}, 1000);
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
